@@ -27,6 +27,15 @@
     <div align="center">
     <h2>Create new person</h2>
     <form:form action="create" method="post" modelAttribute="person">
+        <form:label path="username">Username:</form:label>
+        <form:input required="required" path="username"/><br/>
+
+        <form:label path="password">Password:</form:label>
+        <form:input required="required" path="password"/><br/>
+
+        <form:label path="passwordConfirm">Confirm password:</form:label>
+        <form:input required="required" path="passwordConfirm"/><br/>
+
         <form:label path="firstName">First Name:</form:label>
         <form:input required="required" path="firstName"/><br/>
 

@@ -5,6 +5,7 @@ import com.zdotavv.enterprise_homework7.dto.CartDto;
 import com.zdotavv.enterprise_homework7.dto.PersonDto;
 import com.zdotavv.enterprise_homework7.exceptions.NotFoundException;
 import com.zdotavv.enterprise_homework7.service.CartService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.stream.Collectors;
 
 import static com.zdotavv.enterprise_homework7.converters.CartConverter.convertCartToCartDto;
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
+@Slf4j
 @Controller
 @RequestMapping(path="/cart")
 public class CartController {
@@ -41,7 +44,9 @@ public class CartController {
     }
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String createCart(@ModelAttribute("person") PersonDto personDto) throws NotFoundException {
+        log.debug("createCart() Controller - start: idPerson = {}",personDto.getIdPerson());
         cartService.createCartByPersonId(personDto.getIdPerson());
+        log.debug("createCart() Controller - end: idPerson = {}",personDto.getIdPerson());
         return "/cart/createCartSuccess";
     }
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -52,7 +57,9 @@ public class CartController {
 
     @RequestMapping(value = "/add", method = {RequestMethod.PUT, RequestMethod.POST})
     public String addProductByProductIdAndCartId(@ModelAttribute("cart") CartDto cartDto) throws NotFoundException {
+        log.debug("addProductByProductIdAndCartId() Controller - start: idProduct = {},idCart = {} ",cartDto.getIdProduct(),cartDto.getIdCart());
         cartService.addProductByProductIdAndCartId(cartDto.getIdCart(),cartDto.getIdProduct());
+        log.debug("addProductByProductIdAndCartId() Controller - end: idProduct = {},idCart = {} ",cartDto.getIdProduct(),cartDto.getIdCart());
         return "/cart/addProductToCartSuccess";
     }
 
@@ -64,6 +71,7 @@ public class CartController {
 
     @RequestMapping(value = "/delete", method = {RequestMethod.DELETE, RequestMethod.POST})
     public String deleteCart(@ModelAttribute("cart") CartDto cartDto) throws NotFoundException {
+
         cartService.removeCartById(cartDto.getIdCart());
         return "/cart/deleteCartSuccess";
     }
