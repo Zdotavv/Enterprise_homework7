@@ -1,5 +1,6 @@
 package com.zdotavv.enterprise_homework7.controller;
 
+import com.zdotavv.enterprise_homework7.converters.PersonConverter;
 import com.zdotavv.enterprise_homework7.dto.PersonDto;
 import com.zdotavv.enterprise_homework7.exceptions.NotFoundException;
 import com.zdotavv.enterprise_homework7.service.PersonService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.stream.Collectors;
 
 import static com.zdotavv.enterprise_homework7.converters.PersonConverter.convertPersonDtoToPerson;
 import static com.zdotavv.enterprise_homework7.converters.PersonConverter.convertPersonToPersonDto;
@@ -90,7 +93,7 @@ import static com.zdotavv.enterprise_homework7.converters.PersonConverter.conver
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String getAllPersons(Model model) {
-        model.addAttribute("all", personService.getAllPersons());
+        model.addAttribute("all", personService.getAllPersons().stream().map(PersonConverter::convertPersonToPersonDto).collect(Collectors.toList()));
         return "/person/allPersons";
     }
 }
