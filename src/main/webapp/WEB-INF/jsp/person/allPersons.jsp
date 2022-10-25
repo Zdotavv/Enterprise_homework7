@@ -14,6 +14,7 @@
     <table border="1">
         <tr>
             <th>ID</th>
+            <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>email</th>
@@ -21,6 +22,7 @@
         <c:forEach  items="${all}" var ="person">
             <tr>
                 <td>${person.idPerson}</td>
+                <td>${person.username}</td>
                 <td>${person.firstName}</td>
                 <td>${person.lastName}</td>
                 <td>${person.email}</td>

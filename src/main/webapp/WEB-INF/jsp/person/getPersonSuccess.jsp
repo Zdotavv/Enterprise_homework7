@@ -17,6 +17,9 @@
             <td>ID: </td>
             <td>${personById.idPerson}</td>
         <tr>
+        <td>Username: </td>
+        <td>${personById.username}</td>
+        <tr>
             <td>First name: </td>
             <td>${personById.firstName}</td>
         <tr>

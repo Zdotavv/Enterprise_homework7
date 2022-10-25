@@ -64,6 +64,7 @@ public class PersonServiceImpl implements PersonService {
     public Person updatePerson(Person person) {
         return personRepository.findById(person.getIdPerson())
                 .map(entity -> {
+                    entity.setUsername(person.getUsername());
                     entity.setFirstName(person.getFirstName());
                     entity.setLastName(person.getLastName());
                     entity.setEmail(person.getEmail());

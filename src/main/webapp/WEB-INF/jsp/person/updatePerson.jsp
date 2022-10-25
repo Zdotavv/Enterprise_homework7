@@ -29,6 +29,8 @@
     <form:form action="update" method="post" modelAttribute="person">
         <form:label path="idPerson">Id:</form:label>
         <form:input required="required" path="idPerson"/><br/>
+        <form:label path="username">Username:</form:label>
+        <form:input path="username"/><br/>
         <form:label path="firstName">First Name:</form:label>
         <form:input path="firstName"/><br/>
         <form:label path="lastName">Last Name:</form:label>

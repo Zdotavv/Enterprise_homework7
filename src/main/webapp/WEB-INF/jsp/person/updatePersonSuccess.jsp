@@ -17,6 +17,7 @@
     <a href="${pageContext.request.contextPath}/">&#8592 Back to main menu</a>
 <div align="center">
     <h2>Updating person succeeded!</h2>
+    <span>Username:</span><span>${person.username}</span><br/>
     <span>First Name:</span><span>${person.firstName}</span><br/>
     <span>Last Name:</span><span>${person.lastName}</span><br/>
     <span>Email:</span><span>${person.email}</span><br/>
