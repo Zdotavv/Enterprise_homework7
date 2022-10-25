@@ -24,8 +24,8 @@
 </head>
 <body>
     <a href="${pageContext.request.contextPath}/">&#8592 Back to main menu</a>
-<div align="center">
-    <h2>View product by ID</h2>
+    <h2 align="center">View product by ID</h2>
+    <div align="center">
     <%--@elvariable id="productById" type="com.zdotavv.enterprise_homework7.dto.ProductDto"--%>
     <form:form action="get" method="post" modelAttribute="productById">
         <form:label path="idProduct">ID:</form:label>
@@ -33,5 +33,7 @@
         <form:button>Get</form:button>
     </form:form>
 </div>
+    <br>
+    <a href="${pageContext.request.contextPath}/product">&#8592 Back to product control page </a>
 </body>
 </html>

@@ -25,11 +25,8 @@ import static com.zdotavv.enterprise_homework7.converters.PersonConverter.conver
 
     private final PersonService personService;
 
-    private final HttpServletRequest httpServletRequest;
-
-    public PersonController(PersonService personService,HttpServletRequest httpServletRequest) {
+    public PersonController(PersonService personService) {
         this.personService = personService;
-        this.httpServletRequest = httpServletRequest;
     }
 
     @RequestMapping(method = RequestMethod.GET)

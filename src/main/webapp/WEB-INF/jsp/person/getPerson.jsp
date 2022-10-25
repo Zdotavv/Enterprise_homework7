@@ -33,5 +33,7 @@
         <form:button>Get</form:button>
     </form:form>
 </div>
+    <br>
+    <a href="${pageContext.request.contextPath}/person">&#8592 Back to person control page </a>
 </body>
 </html>
